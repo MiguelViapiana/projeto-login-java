@@ -8,10 +8,12 @@ import java.util.Objects;
 
 public class UsuariosController {
     List<Usuario> list;
+    GerenciadorDeArquivosUsuario gArquivosUsuarios;
 
     public UsuariosController(){
-        GerenciadorDeArquivosUsuario gArquivosUsuarios = new GerenciadorDeArquivosUsuario();
+        this.gArquivosUsuarios = new GerenciadorDeArquivosUsuario();
         list = gArquivosUsuarios.getListUsuarios();
+
     }
 
     public Object efetuarLogin(String email, String senha){
@@ -26,10 +28,12 @@ public class UsuariosController {
 
         if(acharUsuario == null){
             list.add(new Usuario(nome, email, senha));
+            gArquivosUsuarios.gravarUsuario(list);
             return acharUsuario;
         }else{
             return acharUsuario;
         }
+
     }
 
 

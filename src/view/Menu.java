@@ -10,9 +10,9 @@ public class Menu {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\n------------------------");
-        System.out.println("   Possui cadastro? (S/N) ");
-        System.out.println("  ------------------------");
+        System.out.println("\n-----------------------");
+        System.out.println(" Possui cadastro? (S/N) ");
+        System.out.println("-----------------------");
         char ch = sc.next().toUpperCase().charAt(0);
 
         if(ch == 'S'){

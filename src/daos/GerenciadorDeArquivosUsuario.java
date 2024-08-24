@@ -45,7 +45,7 @@ public class GerenciadorDeArquivosUsuario {
         boolean arquivoExiste = new File(path).exists();
 
         try{
-            FileWriter arquivoGravar = new FileWriter(path, true);
+            FileWriter arquivoGravar = new FileWriter(path, false);
             PrintWriter gravador = new PrintWriter(arquivoGravar);
 
             if(!arquivoExiste || new File(path).length() == 0){
@@ -61,32 +61,8 @@ public class GerenciadorDeArquivosUsuario {
         }
         catch (IOException e) {
             System.out.println("[ERROR] "+ e.getMessage());
+            return false;
         }
     }
-
-//
-//            for (Mensalista mensalista : mensalistas) {
-//                String linhaTXTcarro = mensalista.toCSVcarro();
-//                String linhaTXTmoto = mensalista.toCSVmoto();
-//                String linhaTXTcaminhonete = mensalista.toCSVcaminhonete();
-//
-//                if (mensalista.getTipoVeiculo() == 1) {
-//                    gravador.println(linhaTXTcarro);
-//                } else if (mensalista.getTipoVeiculo() == 2) {
-//                    gravador.println(linhaTXTmoto);
-//                } else if (mensalista.getTipoVeiculo() == 3) {
-//                    gravador.println(linhaTXTcaminhonete);
-//                }
-//            }
-//
-//            gravador.close();
-//
-//            return true;
-//
-//        } catch (Exception e) {
-//            System.out.println("Erro ao gravar arquivo: " + e.getMessage());
-//            return false;
-//        }
-//    }
 
 }
