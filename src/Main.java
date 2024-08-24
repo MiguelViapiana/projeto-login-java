@@ -1,15 +1,33 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import entities.Usuario;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+            List<Usuario> listUsuarios = new ArrayList<>();
+            Scanner sc = new Scanner(System.in);
+            String path = "C:\\Users\\Casa\\Documents\\Estudos-Programação\\Java\\SistemaLogin\\src\\usuarios.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String header = sc.nextLine();
+            String line = sc.nextLine();
+
+            while(line != null){
+
+                String[] fields = line.split(";");
+                String nome = fields[0];
+                String email = fields[1];
+                String senha = fields[2];
+
+                listUsuarios.add(new Usuario(nome, email, senha));
+            }
+        } catch (IOException e) {
+
+            e.printStackTrace();
         }
-    }
+
+        }
 }
