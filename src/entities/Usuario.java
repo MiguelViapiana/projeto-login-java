@@ -38,4 +38,8 @@ public class Usuario {
         this.nome = nome;
     }
 
+    public String toCSV() {
+        return getNome() + ";" + getEmail() + ";" + getSenha();
+    }
+
 }
